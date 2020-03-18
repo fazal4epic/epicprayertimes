@@ -15,7 +15,7 @@ export class EpicPrayerWidgetComponent implements OnInit {
   constructor(private prayerTimesService: PrayerTimesService) { }
 
   ngOnInit() {
-    
+    console.log(this.getEPICPrayerTimes());
   }
   getEPICPrayerTimes () {
     this.prayerTimesService.getPrayerTimes().subscribe({
