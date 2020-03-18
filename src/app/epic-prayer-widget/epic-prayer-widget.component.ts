@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PrayerTimesService } from './../prayer-times.service';
-import { DailyPrayerTimes, PrayerTimesEntity, Fajr } from './../dailyprayertimes';
+import { PrayerTimesService, DailyPrayerTimes, PrayerTimesEntity, Fajr } from './../prayer-times.service';
 import { Hero } from './../Hero';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -48,7 +47,7 @@ export class EpicPrayerWidgetComponent implements OnInit {
 
   getPrayerTimes(): void {
     this.prayerTimesService.getPrayerTimes()
-       .subscribe(prayerTimesServiceResponse => this.prayerTimesServiceResponse = prayerTimesServiceResponse);
+       .subscribe(response => this.prayerTimesServiceResponse = response);
   }
 
 

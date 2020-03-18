@@ -1,5 +1,10 @@
 <hello name="{{ name }}"></hello>
 <p>
-  Daily Prayer Times for EPIC Masjid
+  Click the button to get a EPIC Prayer Times for today
 </p>
-<app-epic-prayer-widget></app-epic-prayer-widget>
+
+<hr />
+
+<button class="button" (click)="getPrayerTimes()">EPIC Prayer Times</button>
+
+<p>{{ prayerTimesServiceResponse }}</p>
