@@ -10,8 +10,8 @@ export class PrayerTimesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getPrayerTimes(): Observable<DailyPrayerTimes>{
-    return this.httpClient.get<DailyPrayerTimes>(
+  getPrayerTimes(): Observable<any>{
+    return this.httpClient.get<any>(
       this.madinaAppsUrl
     ).pipe(timeout (60000));
   }

@@ -8,7 +8,7 @@ import { PrayerTimesService, DailyPrayerTimes, PrayerTimesEntity, Fajr } from '.
 })
 export class AppComponent implements OnInit {
   name = 'EPIC Masjid Salah Widget';
-  prayerTimesServiceResponse: DailyPrayerTimes;
+  prayerTimesServiceResponse: any;
 
   constructor(private prayerTimesService: PrayerTimesService) {}
 
