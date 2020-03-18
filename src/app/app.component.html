@@ -4,7 +4,7 @@
 
 <div *ngIf="prayerTimesServiceResponse">
   <p>
-    EPIC Prayer Times for {{ prayerTimesServiceResponse.prayerTimes[0].date }}
+    EPIC Prayer Times for {{ prayerTimesServiceResponse.prayerTimes[0].date }} : {{ prayerTimesServiceResponse.prayerTimes[0].hijriDate }}
   </p>
   {{ prayerTimesServiceResponse.settings.fajrLabel }} : 
   {{ prayerTimesServiceResponse.prayerTimes[0].fajr.iqamahTime }} <br/>
@@ -16,5 +16,4 @@
   {{ prayerTimesServiceResponse.prayerTimes[0].maghrib.iqamahTime }} <br/>
   {{ prayerTimesServiceResponse.settings.ishaLabel }} : 
   {{ prayerTimesServiceResponse.prayerTimes[0].isha.iqamahTime }}<br/>
-
 </div>
