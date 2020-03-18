@@ -2,18 +2,20 @@
 
 <hr />
 
-<div *ngIf="prayerTimesServiceResponse">
-  <p>
-    EPIC Prayer Times for {{ prayerTimesServiceResponse.prayerTimes[0].date }} : {{ prayerTimesServiceResponse.prayerTimes[0].hijriDate }}
-  </p>
-  {{ prayerTimesServiceResponse.settings.fajrLabel }} : 
-  {{ prayerTimesServiceResponse.prayerTimes[0].fajr.iqamahTime }} <br/>
-  {{ prayerTimesServiceResponse.settings.dhuhrLabel }} :
-  {{ prayerTimesServiceResponse.prayerTimes[0].dhuhr.iqamahTime }} <br/>
-  {{ prayerTimesServiceResponse.settings.asrLabel }} :
-  {{ prayerTimesServiceResponse.prayerTimes[0].asr.iqamahTime }} <br/>
-  {{ prayerTimesServiceResponse.settings.maghribLabel }} :
-  {{ prayerTimesServiceResponse.prayerTimes[0].maghrib.iqamahTime }} <br/>
-  {{ prayerTimesServiceResponse.settings.ishaLabel }} : 
-  {{ prayerTimesServiceResponse.prayerTimes[0].isha.iqamahTime }}<br/>
+<div id="container">
+  <div *ngIf="prayerTimesServiceResponse" class="w3-container">
+    <p>
+      EPIC Prayer Times for {{ prayerTimesServiceResponse.prayerTimes[0].date }} : {{ prayerTimesServiceResponse.prayerTimes[0].hijriDate }}
+    </p>
+    {{ prayerTimesServiceResponse.settings.fajrLabel }} : 
+    {{ prayerTimesServiceResponse.prayerTimes[0].fajr.iqamahTime }} <br/>
+    {{ prayerTimesServiceResponse.settings.dhuhrLabel }} :
+    {{ prayerTimesServiceResponse.prayerTimes[0].dhuhr.iqamahTime }} <br/>
+    {{ prayerTimesServiceResponse.settings.asrLabel }} :
+    {{ prayerTimesServiceResponse.prayerTimes[0].asr.iqamahTime }} <br/>
+    {{ prayerTimesServiceResponse.settings.maghribLabel }} :
+    {{ prayerTimesServiceResponse.prayerTimes[0].maghrib.iqamahTime }} <br/>
+    {{ prayerTimesServiceResponse.settings.ishaLabel }} : 
+    {{ prayerTimesServiceResponse.prayerTimes[0].isha.iqamahTime }}<br/>
+  </div>
 </div>
