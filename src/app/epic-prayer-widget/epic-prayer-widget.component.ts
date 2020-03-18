@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PrayerTimesService } from './prayer-times.service';
+import { DailyPrayerTimes } from './dailyprayertimes';
 
 @Component({
   selector: 'app-epic-prayer-widget',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EpicPrayerWidgetComponent implements OnInit {
 
-  constructor() { }
+  prayerTimesServiceResponse: DailyPrayerTimes;
+  constructor(private prayerTimesService: PrayerTimesService) { }
 
   ngOnInit() {
+    this.prayerTimesService.getPrayerTimes().subscribe({
+      next(response) {
+        this.prayerTimesServiceResponse = response;
+      },
+      error(err) { // TODO: send writeLog
+        console.error('Error DailyPrayerTimes>>>>>>>>>>>>: ' , err);
+      },
+      complete() {
+      }
+
+    });;
   }
 
 }
