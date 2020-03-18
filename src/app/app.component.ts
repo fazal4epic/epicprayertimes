@@ -8,7 +8,7 @@ import { PrayerTimesService } from './prayer-times.service';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent implements OnInit {
-  name = 'EPIC Masjid Salah Widget';
+  name = 'EPIC Masjid Prayet Widget';
   prayerTimesServiceResponse: Observable<any>;
 
   constructor(private prayerTimesService: PrayerTimesService) {}
