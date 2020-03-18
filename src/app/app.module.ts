@@ -6,11 +6,10 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { PrayerTimesService } from './prayer-times.service';
 import { HttpClientModule } from '@angular/common/http';
-import { EpicPrayerWidgetComponent } from './epic-prayer-widget/epic-prayer-widget.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule,  HttpClientModule ],
-  declarations: [ AppComponent, HelloComponent, EpicPrayerWidgetComponent ],
+  declarations: [ AppComponent, HelloComponent ],
   bootstrap:    [ AppComponent ],
   providers: [PrayerTimesService]
 })
