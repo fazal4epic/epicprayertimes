@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PrayerTimesService } from './../prayer-times.service';
-import { DailyPrayerTimes } from './../dailyprayertimes';
+import { PrayerTimesEntity } from './../dailyprayertimes';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,19 +11,18 @@ import { map } from 'rxjs/operators';
 })
 export class EpicPrayerWidgetComponent implements OnInit {
 
-  prayerTimesServiceResponse: DailyPrayerTimes;
+  prayerTimesServiceResponse: PrayerTimesEntity;
   constructor(private prayerTimesService: PrayerTimesService) { }
 
   ngOnInit() {
     this.getEPICPrayerTimes();
   }
+
   getEPICPrayerTimes () {
     this.prayerTimesService.getPrayerTimes().subscribe({
       next(response) {
-        this.prayerTimesServiceResponse = response;
-        console.log(this.prayerTimesServiceResponse);
-        console.log(response.settings.fajrLabel);
-        console.log(response.prayerTimes[0]);
+        this.prayerTimesServiceResponse = response.prayerTimes[0];
+        console.log(this.prayerTimesServiceResponse.fajr);
       },
       error(err) {
         console.error('Error DailyPrayerTimes>>>>>>>>>>>>: ' , err);
