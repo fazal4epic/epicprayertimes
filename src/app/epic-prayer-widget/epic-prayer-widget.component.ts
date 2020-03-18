@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PrayerTimesService } from './prayer-times.service';
+import { PrayerTimesService } from './../prayer-times.service';
 import { DailyPrayerTimes } from './dailyprayertimes';
 
 @Component({
@@ -17,7 +17,7 @@ export class EpicPrayerWidgetComponent implements OnInit {
       next(response) {
         this.prayerTimesServiceResponse = response;
       },
-      error(err) { // TODO: send writeLog
+      error(err) {
         console.error('Error DailyPrayerTimes>>>>>>>>>>>>: ' , err);
       },
       complete() {
