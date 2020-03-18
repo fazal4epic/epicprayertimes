@@ -8,9 +8,4 @@ export class PrayerTimesService {
   private madinaAppsUrl: string = 'https://services.madinaapps.com/kiosk-rest/clients/5/prayerTimes';
 
   constructor(private httpClient: HttpClient) { }
-
-  getPrayerTimes() {
-
-  }
-
 }
