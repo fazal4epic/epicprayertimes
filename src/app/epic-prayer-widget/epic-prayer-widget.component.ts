@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrayerTimesService } from './../prayer-times.service';
-import { PrayerTimesEntity } from './../dailyprayertimes';
+import { DailyPrayerTimes, PrayerTimesEntity, Fajr } from './../dailyprayertimes';
+import { Hero } from './../Hero';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,25 +12,44 @@ import { map } from 'rxjs/operators';
 })
 export class EpicPrayerWidgetComponent implements OnInit {
 
-  prayerTimesServiceResponse: PrayerTimesEntity;
+  prayerTimesServiceResponse: DailyPrayerTimes;
+  prayerTimesEntity: PrayerTimesEntity;
+  fajr: Fajr;
+
+  hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
+  };
+
   constructor(private prayerTimesService: PrayerTimesService) { }
 
   ngOnInit() {
-    this.getEPICPrayerTimes();
+    this.getPrayerTimes();
+    console.log(this.prayerTimesServiceResponse);
+    this.prayerTimesEntity = this.getEPICPrayerTimesForToday();
+    console.log(this.prayerTimesEntity);
+    console.log('Fajr' + this.fajr);
   }
 
-  getEPICPrayerTimes () {
+  getEPICPrayerTimesForToday(): PrayerTimesEntity {
     this.prayerTimesService.getPrayerTimes().subscribe({
       next(response) {
-        this.prayerTimesServiceResponse = response.prayerTimes[0];
-        console.log(this.prayerTimesServiceResponse.fajr);
+        console.log(response.prayerTimes[0]);
+        prayerTimesServiceResponse => this.prayerTimesServiceResponse = prayerTimesServiceResponse
+        return response.prayerTimes[0];
       },
       error(err) {
         console.error('Error DailyPrayerTimes>>>>>>>>>>>>: ' , err);
       },
       complete() {
       }
-
     });
   }
+
+  getPrayerTimes(): void {
+    this.prayerTimesService.getPrayerTimes()
+       .subscribe(prayerTimesServiceResponse => this.prayerTimesServiceResponse = prayerTimesServiceResponse);
+  }
+
+
 }

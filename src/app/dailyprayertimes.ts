@@ -20,16 +20,36 @@ export interface PrayerTimesEntity {
   hijriDate: string;
   displayDate: string;
   day: string;
-  fajr: FajrOrDhuhrOrAsrOrMaghribOrIsha;
+  fajr: FajrTime;
   sunrise: string;
-  dhuhr: FajrOrDhuhrOrAsrOrMaghribOrIsha;
-  asr: FajrOrDhuhrOrAsrOrMaghribOrIsha;
-  maghrib: FajrOrDhuhrOrAsrOrMaghribOrIsha;
-  isha: FajrOrDhuhrOrAsrOrMaghribOrIsha;
+  dhuhr: DhuhrTime;
+  asr: AsrTime;
+  maghrib: MaghribTime;
+  isha: IshaTime;
   juma: Juma;
   jumaTimes?: (JumaTimesEntity)[] | null;
 }
-export interface FajrOrDhuhrOrAsrOrMaghribOrIsha {
+export interface FajrTime {
+  adhaanTime: string;
+  iqamahTime: string;
+  notes?: null;
+}
+export interface DhuhrTime {
+  adhaanTime: string;
+  iqamahTime: string;
+  notes?: null;
+}
+export interface AsrTime {
+  adhaanTime: string;
+  iqamahTime: string;
+  notes?: null;
+}
+export interface MaghribTime {
+  adhaanTime: string;
+  iqamahTime: string;
+  notes?: null;
+}
+export interface IshaTime {
   adhaanTime: string;
   iqamahTime: string;
   notes?: null;
