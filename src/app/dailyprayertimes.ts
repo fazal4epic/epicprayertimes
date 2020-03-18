@@ -1,6 +1,6 @@
 export interface DailyPrayerTimes {
   settings: Settings;
-  prayerTimes?: (PrayerTimesEntity)[] | null;
+  prayerTimes: PrayerTimesEntity;
 }
 export interface Settings {
   fajrLabel: string;
