@@ -21,7 +21,9 @@ export class EpicPrayerWidgetComponent implements OnInit {
     this.prayerTimesService.getPrayerTimes().subscribe({
       next(response) {
         this.prayerTimesServiceResponse = response;
-        console.log(response);
+        console.log(this.prayerTimesServiceResponse);
+        console.log(response.settings.fajrLabel);
+        console.log(response.prayerTimes[0]);
       },
       error(err) {
         console.error('Error DailyPrayerTimes>>>>>>>>>>>>: ' , err);
