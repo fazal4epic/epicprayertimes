@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PrayerTimesService, DailyPrayerTimes, PrayerTimesEntity, Fajr } from './prayer-times.service';
+import { Observable } from 'rxjs';
+import { PrayerTimesService } from './prayer-times.service';
 
 @Component({
   selector: 'my-app',
@@ -8,17 +9,20 @@ import { PrayerTimesService, DailyPrayerTimes, PrayerTimesEntity, Fajr } from '.
 })
 export class AppComponent implements OnInit {
   name = 'EPIC Masjid Salah Widget';
-  prayerTimesServiceResponse: any;
+  prayerTimesServiceResponse: Observable<any>;
 
   constructor(private prayerTimesService: PrayerTimesService) {}
 
   ngOnInit(): void {
     this.getPrayerTimes();
-    console.log(this.prayerTimesServiceResponse);
   }
 
   getPrayerTimes(): void {
     this.prayerTimesService.getPrayerTimes()
-       .subscribe(response => this.prayerTimesServiceResponse = response);
+       .subscribe(data => {
+         console.log(data);
+         this.prayerTimesServiceResponse = data;
+         console.log(this.prayerTimesServiceResponse);
+         });
   }
 }

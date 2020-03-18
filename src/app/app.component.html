@@ -1,10 +1,20 @@
 <hello name="{{ name }}"></hello>
 <p>
-  Click the button to get a EPIC Prayer Times for today
+  EPIC Prayer Times for today
 </p>
 
 <hr />
 
-<button class="button" (click)="getPrayerTimes()">EPIC Prayer Times</button>
+<div *ngIf="prayerTimesServiceResponse">
+  {{ prayerTimesServiceResponse.settings.fajrLabel }} : 
+  {{ prayerTimesServiceResponse.prayerTimes[0].fajr.iqamahTime }} <br/>
+  {{ prayerTimesServiceResponse.settings.dhuhrLabel }} :
+  {{ prayerTimesServiceResponse.prayerTimes[0].dhuhr.iqamahTime }} <br/>
+  {{ prayerTimesServiceResponse.settings.asrLabel }} :
+  {{ prayerTimesServiceResponse.prayerTimes[0].asr.iqamahTime }} <br/>
+  {{ prayerTimesServiceResponse.settings.maghribLabel }} :
+  {{ prayerTimesServiceResponse.prayerTimes[0].maghrib.iqamahTime }} <br/>
+  {{ prayerTimesServiceResponse.settings.ishaLabel }} : 
+  {{ prayerTimesServiceResponse.prayerTimes[0].isha.iqamahTime }}<br/>
 
-<p>{{ prayerTimesServiceResponse.fajr }}</p>
+</div>
