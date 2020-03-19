@@ -19,12 +19,9 @@ export class AppComponent implements OnInit {
 
   getPrayerTimes(): void {
     this.prayerTimesService.getPrayerTimes()
-        /*
        .subscribe(data => {
          this.prayerTimesServiceResponse = data;
          console.log(this.prayerTimesServiceResponse);
          });
-         */
-      .subscribe(data => this.prayerTimesServiceResponse = data);
   }
 }
